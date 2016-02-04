@@ -61,9 +61,9 @@ public class CameraActivity extends Activity {
         View viewControl = controlInflater.inflate(R.layout.overlay_camera, null);
         ViewGroup.LayoutParams layoutParamsControl = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
         this.addContentView(viewControl, layoutParamsControl);
-
-
         /** PRUEBA DE OVERLAY **/
+
+
         // Add a listener to the Capture button
         Button captureButton = (Button) findViewById(R.id.button_capture);
         captureButton.setOnClickListener(
@@ -71,7 +71,7 @@ public class CameraActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         // get an image from the camera
-                        mCamera.takePicture(null, null, mPicture);
+                        mCamera.takePicture(shutterCallback, null, mPicture);
                     }
                 }
         );
@@ -122,6 +122,13 @@ public class CameraActivity extends Activity {
             } catch (IOException e) {
                 Log.d(TAG, "Error accessing file: " + e.getMessage());
             }
+        }
+    };
+
+    Camera.ShutterCallback shutterCallback = new Camera.ShutterCallback() {
+        @Override
+        public void onShutter() {
+        /* Empty Callbacks play a sound! */
         }
     };
 
