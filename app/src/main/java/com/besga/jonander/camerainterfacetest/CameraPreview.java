@@ -56,6 +56,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             return;
         }
 
+
         // stop preview before making changes
         try {
             mCamera.stopPreview();
@@ -74,5 +75,6 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         } catch (Exception e){
             Log.d(TAG, "Error starting camera preview: " + e.getMessage());
         }
+
     }
 }
