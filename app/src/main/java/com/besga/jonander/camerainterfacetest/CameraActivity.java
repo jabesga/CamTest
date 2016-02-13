@@ -89,6 +89,7 @@ public class CameraActivity extends Activity {
         /** PRUEBA DE OVERLAY **/
 
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
@@ -147,7 +148,6 @@ public class CameraActivity extends Activity {
                 rotatedBitmap.compress(Bitmap.CompressFormat.JPEG, 90, fos);
                 fos.close();
 
-                mPreview.restartCamera();
                 /** TURN IMAGE AFTER SAVE **/
 
                 Log.d(TAG, "Picture saved in: " + Uri.fromFile(pictureFile).toString());
